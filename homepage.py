@@ -30,13 +30,14 @@ with cols[2]:
     if st.button("New 4 player game"):
         st.navigation("pages/four_player.py")
 
-
+homepage = st.Page("homepage.py", title="Splendor CPU", icon=":material/diamond:")
 two_player = st.Page("pages/two_player.py", title="2 Player Game", icon=":material/diamond:")
 three_player = st.Page("pages/three_player.py", title="3 Player Game", icon=":material/diamond:")
 four_player = st.Page("pages/four_player.py", title="4 Player Game", icon=":material/diamond:")
 
 
 pg = st.navigation([
+                    homepage,
                     two_player,
                     three_player,
                     four_player
