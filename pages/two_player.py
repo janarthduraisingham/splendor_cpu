@@ -12,18 +12,33 @@ level_one = st.columns(4)
 level_two= st.columns(4)
 level_three = st.columns(4)
 
-st.write("Open the toggle below to set up the game state. Close when done.")
-setup_toggle = st.toggle("Set up game state")
+st.write("Open the toggle below for game setup. Close when done.")
+setup_toggle = st.toggle("Game Setup")
 
 test = "unedited"
 
 if setup_toggle:
     
-    st.write("setup not complete")
+    st.write("Please enter cards in colour-cost-points format:\n\n bla/blu/gre/red/whi for colour\n\n a 6 digit number for the cost for the respective colours\n\n a 1 digit number for the points\n\n e.g. blu333001")
     
-    test = st.text_input("edit test variable")
+    cols = st.columns(4)
     
-st.write("value of test variable is " + test)
+    with cols[0]:
+        initial_level_1_1 = st.text_input("Level 1 Column 1 card")
+        initial_level_2_1 = st.text_input("Level 2 Column 1 card")
+        
+    with cols[1]:
+        initial_level_1_2 = st.text_input("Level 1 Column 2 card")
+        
+    with cols[2]:
+        initial_level_1_3 = st.text_input("Level 1 Column 3 card")
+        
+    with cols[3]:
+        initial_level_1_4 = st.text_input("Level 1 Column 4 card")
+    
+    
+    
+st.write("value of row 1: " + initial_level_1_1 + initial_level_1_2 + initial_level_1_3 + initial_level_1_4)
     
 
     
