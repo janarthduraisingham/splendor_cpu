@@ -6,7 +6,7 @@ Created on Sun Aug 11 21:30:30 2024
 """
 import streamlit as st
 
-st.header("200 Player Game")
+st.header("2 Player Game")
 
 level_one = st.columns(4)
 level_two= st.columns(4)
@@ -15,7 +15,10 @@ level_three = st.columns(4)
 st.write("Open the toggle below for game setup. Close when done.")
 setup_toggle = st.toggle("Game Setup")
 
-test = "unedited"
+initial_level_1_1 = ""
+initial_level_1_2 = ""
+initial_level_1_3 = ""
+initial_level_1_3 = ""
 
 if setup_toggle:
     
