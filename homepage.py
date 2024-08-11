@@ -18,6 +18,6 @@ st.write("Choose game:")
 
 if st.button("New 2 player game"):
     
-    st.navigate("pages/two_player")
+    st.navigation("pages/two_player")
 
 
