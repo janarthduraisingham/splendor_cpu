@@ -9,10 +9,10 @@ import copy
 
 st.header("2 Player Game")
 
-card_1_1 = "0"
-card_1_2 = "0"
-card_1_3 = "0"
-card_1_4 = "0"
+#card_1_1 = "0"
+#card_1_2 = "0"
+#card_1_3 = "0"
+#card_1_4 = "0"
 
     
 st.write("Please enter cards in colour-cost-points format:\n\n bla/blu/gre/red/whi for colour\n\n a 5 digit number for the cost for the respective colours\n\n a 1 digit number for the points\n\n e.g. blu333001")
@@ -44,14 +44,14 @@ if st.button("Confirm"):
     card_1_2 = copy.deepcopy(initial_card_1_2)
     card_1_3 = copy.deepcopy(initial_card_1_3)
     card_1_4 = copy.deepcopy(initial_card_1_4)
-    #card_1_1 = copy.deepcopy(initial_card_1_1)
-    #card_1_1 = copy.deepcopy(initial_card_1_1)
-    #card_1_1 = copy.deepcopy(initial_card_1_1)
-    #card_1_1 = copy.deepcopy(initial_card_1_1)
-    #card_1_1 = copy.deepcopy(initial_card_1_1)
-    #card_1_1 = copy.deepcopy(initial_card_1_1)
-    #card_1_1 = copy.deepcopy(initial_card_1_1)
-    #card_1_1 = copy.deepcopy(initial_card_1_1)
+    card_2_1 = copy.deepcopy(initial_card_2_1)
+    card_2_2 = copy.deepcopy(initial_card_2_2)
+    card_2_3 = copy.deepcopy(initial_card_2_3)
+    card_2_4 = copy.deepcopy(initial_card_2_4)
+    card_3_1 = copy.deepcopy(initial_card_3_1)
+    card_3_2 = copy.deepcopy(initial_card_3_2)
+    card_3_3 = copy.deepcopy(initial_card_3_3)
+    card_3_4 = copy.deepcopy(initial_card_3_4)
 
 st.write("value of row 1: " + card_1_1 + card_1_2 + card_1_3 + card_1_4)
     
