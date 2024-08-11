@@ -18,7 +18,7 @@ setup_toggle = st.toggle("Game Setup")
 initial_level_1_1 = ""
 initial_level_1_2 = ""
 initial_level_1_3 = ""
-initial_level_1_3 = ""
+initial_level_1_4 = ""
 
 if setup_toggle:
     
