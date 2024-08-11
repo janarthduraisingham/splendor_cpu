@@ -76,5 +76,6 @@ with level_one[0]:
 if st.button("change pic to splendor"):
     card_1_1 = "1"
     
+st.write(card_1_1)
     
     
