@@ -22,7 +22,8 @@ card_3_2 = "0"
 card_3_3 = "0"
 card_3_4 = "0"
 
-cards_dict ={"0":"cards/test.jpg"}
+cards_dict ={"0":"cards/test.jpg",
+             "1":"cards/splendor.jpg"}
 
     
 st.write("Please enter cards in colour-cost-points format:\n\n bla/blu/gre/red/whi for colour\n\n a 5 digit number for the cost for the respective colours\n\n a 1 digit number for the points\n\n e.g. blu333001")
@@ -71,6 +72,10 @@ level_three = st.columns(4)
 
 with level_one[0]:
     st.image(cards_dict[card_1_1])
+    
+if st.button("change pic to splendor"):
+    with level_one[0]:
+        st.image("cards/splendor.jpg")
     
     
     
