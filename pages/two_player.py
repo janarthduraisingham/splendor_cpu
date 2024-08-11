@@ -12,7 +12,8 @@ level_one = st.columns(4)
 level_two= st.columns(4)
 level_three = st.columns(4)
 
-setup_toggle = st.toggle("Setup Complete!")
+st.write("Open the toggle below to set up the game state. Close when done.")
+setup_toggle = st.toggle("Set up game state")
 
 test = "unedited"
 
