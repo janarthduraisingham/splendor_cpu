@@ -8,13 +8,6 @@ import streamlit as st
 
 st.header("2 Player Game")
 
-level_one = st.columns(4)
-level_two= st.columns(4)
-level_three = st.columns(4)
-
-st.write("Open the toggle below for game setup. Close when done.")
-setup_toggle = st.toggle("Game Setup")
-
 initial_level_1_1 = ""
 initial_level_1_2 = ""
 initial_level_1_3 = ""
@@ -42,6 +35,8 @@ with cols[3]:
     
 st.write("value of row 1: " + initial_level_1_1 + initial_level_1_2 + initial_level_1_3 + initial_level_1_4)
     
-
+level_one = st.columns(4)
+level_two= st.columns(4)
+level_three = st.columns(4)
     
     
