@@ -6,7 +6,7 @@ Created on Sun Aug 11 21:30:30 2024
 """
 import streamlit as st
 
-st.header("2 Player Game")
+st.header("200 Player Game")
 
 level_one = st.columns(4)
 level_two= st.columns(4)
