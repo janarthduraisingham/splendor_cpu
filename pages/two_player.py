@@ -16,7 +16,7 @@ setup_toggle = st.toggle("Setup Complete!")
 
 test = "unedited"
 
-if not setup_toggle:
+if setup_toggle:
     
     st.write("setup not complete")
     
