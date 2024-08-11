@@ -9,10 +9,18 @@ import copy
 
 st.header("2 Player Game")
 
-#card_1_1 = "0"
-#card_1_2 = "0"
-#card_1_3 = "0"
-#card_1_4 = "0"
+card_1_1 = "0"
+card_1_2 = "0"
+card_1_3 = "0"
+card_1_4 = "0"
+card_2_1 = "0"
+card_2_2 = "0"
+card_2_3 = "0"
+card_2_4 = "0"
+card_3_1 = "0"
+card_3_2 = "0"
+card_3_3 = "0"
+card_3_4 = "0"
 
     
 st.write("Please enter cards in colour-cost-points format:\n\n bla/blu/gre/red/whi for colour\n\n a 5 digit number for the cost for the respective colours\n\n a 1 digit number for the points\n\n e.g. blu333001")
