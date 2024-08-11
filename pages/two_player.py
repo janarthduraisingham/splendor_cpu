@@ -12,3 +12,18 @@ level_one = st.columns(4)
 level_two= st.columns(4)
 level_three = st.columns(4)
 
+setup_toggle = st.toggle("Setup Complete!")
+
+test = "unedited"
+
+if not setup_toggle:
+    
+    st.write("setup not complete")
+    
+    test = st.text_input("edit test variable")
+    
+st.write("value of test variable is " + test)
+    
+
+    
+    
