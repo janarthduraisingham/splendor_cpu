@@ -21,9 +21,9 @@ if st.button("New 2 player game"):
     st.navigation("pages/two_player")
 
 
-two_player = st.Page("two_player.py", title="2 Player Game", icon=":gem:")
-three_player = st.Page("three_player.py", title="3 Player Game", icon=":gem:")
-four_player = st.Page("four_player.py", title="4 Player Game", icon=":gem:")
+two_player = st.Page("pages/two_player.py", title="2 Player Game", icon=":gem:")
+three_player = st.Page("pages/three_player.py", title="3 Player Game", icon=":gem:")
+four_player = st.Page("pages/four_player.py", title="4 Player Game", icon=":gem:")
 
 
 pg = st.navigation([
