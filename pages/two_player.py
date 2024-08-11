@@ -22,6 +22,8 @@ card_3_2 = "0"
 card_3_3 = "0"
 card_3_4 = "0"
 
+cards_dict ={"0":"cards/test.jpg"}
+
     
 st.write("Please enter cards in colour-cost-points format:\n\n bla/blu/gre/red/whi for colour\n\n a 5 digit number for the cost for the respective colours\n\n a 1 digit number for the points\n\n e.g. blu333001")
     
@@ -61,10 +63,14 @@ if st.button("Confirm"):
     card_3_3 = copy.deepcopy(initial_card_3_3)
     card_3_4 = copy.deepcopy(initial_card_3_4)
 
-st.write("value of row 1: " + card_1_1 + card_1_2 + card_1_3 + card_1_4)
+st.subheader("Game Board")
     
 level_one = st.columns(4)
 level_two= st.columns(4)
 level_three = st.columns(4)
+
+with level_one[0]:
+    st.image(cards_dict[card_1_1])
+    
     
     
