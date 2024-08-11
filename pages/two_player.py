@@ -74,8 +74,7 @@ with level_one[0]:
     st.image(cards_dict[card_1_1])
     
 if st.button("change pic to splendor"):
-    with level_one[0]:
-        st.image("cards/splendor.jpg")
+    card_1_1 = "1"
     
     
     
