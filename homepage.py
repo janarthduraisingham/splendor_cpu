@@ -16,14 +16,19 @@ st.write ("M. Andre (2014). Splendor [Board Game]. Space Cowboys")
 
 st.write("Choose game:")
 
-if st.button("New 2 player game"):    
-    st.navigation("pages/two_player")
+cols = st.columns(3)
+
+with cols[0]:
+    if st.button("New 2 player game"):   
+        st.navigation("pages/two_player.py")
     
-if st.button("New 3 player game"):
-    st.navigation("pages/three_player")
+with cols[1]:
+    if st.button("New 3 player game"):
+        st.navigation("pages/three_player.py")
     
-if st.button("New 4 player game"):
-    st.navigation("pages/four_player")
+with cols[2]:
+    if st.button("New 4 player game"):
+        st.navigation("pages/four_player.py")
 
 
 two_player = st.Page("pages/two_player.py", title="2 Player Game", icon=":material/diamond:")
