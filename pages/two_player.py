@@ -218,7 +218,7 @@ with tableau[3]:
 
 st.write("Deck contains: " + str(len(list(deck.keys()))))
 st.write("Tableau contains: " + str(len(list(tableau_deck.keys()))))
-
+st.write(st.session_state['card_1_1'])
 st.write(deck)
 st.write(tableau_deck)
 st.session_state
