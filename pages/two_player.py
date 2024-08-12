@@ -103,11 +103,7 @@ def confirm_button():
     for card in slots:
         #st.write("this is a pre test")
         st.session_state['tableau_deck'][st.session_state[card]] = st.session_state['deck'][st.session_state[card]]
-        deck_copy = copy.deepcopy(st.session_state['deck'])
-        del deck_copy[st.session_state[card]]
-        st.session_state['deck'] = copy.deepcopy(deck_copy)
-        #st.session_state['deck'] = 'changed deck'
-        #del st.session_state['deck'][st.session_state[card]]
+        del st.session_state.deck[st.session_state[card]]
         #st.write("this is a post test")
         #st.write(st.session_state[card])
 
