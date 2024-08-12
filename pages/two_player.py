@@ -23,7 +23,10 @@ var_list = ['card_1_1',
              'card_3_3',
              'card_3_4',
              'setup_complete',
-             'turn'
+             'turn',
+             'obj_1',
+             'obj_2',
+             'obj_3'
              ]
 
 for var in var_list:
@@ -32,7 +35,10 @@ for var in var_list:
             st.session_state[var] = 1
         else:
             st.session_state[var] = ''
-            
+
+# List of cards
+card_serials = ['bla']
+
 # confirm button
 def confirm_button():
     st.session_state['setup_complete'] = 'complete'
@@ -50,7 +56,18 @@ for key in cards_dict.keys():
 
 st.write("Open the toggle to set up initial card tableau. Close when done")
 if st.toggle("Game setup") and st.session_state['setup_complete']=='': 
-    st.write("Please enter cards in colour-cost-points format:\n\n bla/blu/gre/red/whi for colour\n\n a 5 digit number for the cost for the respective colours\n\n a 1 digit number for the points\n\n e.g. blu333001")
+    st.write("Please enter cards in colour-cost-points format:\n\n bla/blu/gre/red/whi for colour\n\n a 1 digit number for level\n\n a 5 digit number for the cost for the respective colours\n\n a 1 digit number for the points\n\n e.g. blu1333001")
+    
+    obj_cols = st.columns(3)
+    
+    with obj_cols[0]:
+        st.session_state['obj_1'] = st.text_input("objective card 1")
+        
+    with obj_cols[1]:
+        st.session_state['obj_2'] = st.text_input("objective card 2")
+        
+    with obj_cols[2]:
+        st.session_state['obj_3'] = st.text_input("objective card 3")
     
     cols = st.columns(4)
         
@@ -77,6 +94,20 @@ if st.toggle("Game setup") and st.session_state['setup_complete']=='':
     st.button("Confirm setup", on_click=confirm_button)
     
 st.subheader("Game Board: Turn " + str(st.session_state['turn']))
+
+obj_tableau = st.columns(3)
+
+with obj_tableau[0]:
+    obj_slot_1 = st.empty()
+    obj_slot_1.image(cards_dict[st.session_state['obj_1']])
+    
+with obj_tableau[1]:
+    obj_slot_2 = st.empty()
+    obj_slot_2.image(cards_dict[st.session_state['obj_2']])
+    
+with obj_tableau[2]:
+    obj_slot_3 = st.empty()
+    obj_slot_3.image(cards_dict[st.session_state['obj_3']])
     
 tableau = st.columns(4)
 
