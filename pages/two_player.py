@@ -92,6 +92,7 @@ def confirm_button():
     st.session_state['setup_complete'] = 'complete'
     
     # move cards from deck to tableau
+    st.write("this is a pre pre test")
     for card in slots:
         st.write("this is a pre test")
         tableau_deck[st.session_state[card]] = deck[st.session_state[card]]
