@@ -218,6 +218,8 @@ with tableau[3]:
 st.write("Deck contains: " + str(len(list(deck.keys()))))
 st.write("Tableau contains: " + str(len(list(tableau_deck.keys()))))
 
+st.session_state
+
 
     
     
