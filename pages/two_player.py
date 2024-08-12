@@ -110,7 +110,9 @@ level_two= st.columns(4)
 level_three = st.columns(4)
 
 with level_one[0]:
-    st.image(cards_dict[st.session_state['card_1_1']])
+    slot_1_1 = st.empty()
+    slot_1_1.image(cards_dict[st.session_state['card_1_1']])
+    #st.image(cards_dict[st.session_state['card_1_1']])
     
 with level_one[1]:
     st.image(cards_dict[st.session_state['card_1_2']])
