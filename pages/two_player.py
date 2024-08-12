@@ -20,6 +20,7 @@ var_list = ['card_1_1',
              'card_2_4',
              'card_3_1',
              'card_3_2',
+             'card_3_3',
              'card_3_4',
              'setup_complete',
              ]
