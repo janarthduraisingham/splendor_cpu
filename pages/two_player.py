@@ -39,19 +39,19 @@ for var in var_list:
 #card_3_3 = "0"
 #card_3_4 = "0"
 
-initial_state = {
-  "card_3_4": "0",
-  "card_1_1": "0",
-  "card_1_2": "0",
-  "card_2_3": "0",
-  "card_1_4": "0",
-  "card_2_2": "0",
-  "card_3_1": "0",
-  "card_3_2": "0",
-  "card_2_4": "0",
-  "card_1_3": "0",
-  "card_2_1": "0"
-}
+#initial_state = {
+#  "card_3_4": "0",
+#  "card_1_1": "0",
+#  "card_1_2": "0",
+#  "card_2_3": "0",
+#  "card_1_4": "0",
+#  "card_2_2": "0",
+#  "card_3_1": "0",
+#  "card_3_2": "0",
+#  "card_2_4": "0",
+#  "card_1_3": "0",
+#  "card_2_1": "0"
+#}
 
 cards_dict ={"0":"cards/test.jpg",
              "1":"cards/splendor.jpg"}
@@ -65,22 +65,22 @@ if st.toggle("Game setup") and st.session_state['setup_complete']=='0':
     with cols[0]:
         st.session_state['card_1_1'] = st.text_input("Level 1 Column 1 card")
         st.session_state['card_2_1'] = st.text_input("Level 2 Column 1 card")
-        initial_card_3_1 = st.text_input("Level 3 Column 1 card")
+        st.session_state['card_3_1'] = st.text_input("Level 3 Column 1 card")
         
     with cols[1]:
         st.session_state['card_1_2'] = st.text_input("Level 1 Column 2 card")
-        initial_card_2_2 = st.text_input("Level 2 Column 2 card")
-        initial_card_3_2 = st.text_input("Level 3 Column 2 card")
+        st.session_state['card_2_2'] = st.text_input("Level 2 Column 2 card")
+        st.session_state['card_3_2'] = st.text_input("Level 3 Column 2 card")
         
     with cols[2]:
-        initial_card_1_3 = st.text_input("Level 1 Column 3 card")
-        initial_card_2_3 = st.text_input("Level 2 Column 3 card")
-        initial_card_3_3 = st.text_input("Level 3 Column 3 card")
+        st.session_state['card_1_3'] = st.text_input("Level 1 Column 3 card")
+        st.session_state['card_2_3'] = st.text_input("Level 2 Column 3 card")
+        st.session_state['card_3_3'] = st.text_input("Level 3 Column 3 card")
             
     with cols[3]:
-        initial_card_1_4 = st.text_input("Level 1 Column 4 card")
-        initial_card_2_4 = st.text_input("Level 2 Column 4 card")
-        initial_card_3_4 = st.text_input("Level 3 Column 4 card")
+        st.session_state['card_1_4'] = st.text_input("Level 1 Column 4 card")
+        st.session_state['card_2_4'] = st.text_input("Level 2 Column 4 card")
+        st.session_state['card_3_4'] = st.text_input("Level 3 Column 4 card")
         
     if st.button("Confirm setup"):
         st.session_state['setup_complete'] == '1'
