@@ -93,9 +93,10 @@ def confirm_button():
     
     # move cards from deck to tableau
     for card in slots:
+        st.write("this is a pre test")
         tableau_deck[st.session_state[card]] = deck[st.session_state[card]]
         del deck[st.session_state[card]]
-        st.write("this is a test")
+        st.write("this is a post test")
         st.write(st.session_state[card])
 
 cards_dict ={"":"cards/splendor.jpg",
