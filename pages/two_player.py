@@ -30,7 +30,7 @@ for var in var_list:
             
 # confirm button
 def confirm_button():
-    st.session_state['setup_complete'] = '1'
+    st.session_state['setup_complete'] = 'complete'
 #card_1_1 = "0"
 #card_1_2 = "0"
 #card_1_3 = "0"
@@ -61,7 +61,7 @@ def confirm_button():
 cards_dict ={"":"cards/test.jpg",
              "1":"cards/splendor.jpg"}
 
-st.write("Open the toggle to set up initial card tableu. Close when done")
+st.write("Open the toggle to set up initial card tableau. Close when done")
 if st.toggle("Game setup") and st.session_state['setup_complete']=='': 
     st.write("Please enter cards in colour-cost-points format:\n\n bla/blu/gre/red/whi for colour\n\n a 5 digit number for the cost for the respective colours\n\n a 1 digit number for the points\n\n e.g. blu333001")
     
