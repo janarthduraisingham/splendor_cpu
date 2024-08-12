@@ -5,7 +5,7 @@ Created on Sun Aug 11 21:30:30 2024
 @author: jd_se
 """
 import streamlit as st
-import copy
+#import copy
 
 st.header("2 Player Game")
 
@@ -93,9 +93,10 @@ with level_one[0]:
 with level_one[1]:
     st.image(cards_dict[st.session_state['card_1_2']])
     
-if st.button("change pic to splendor"):
-    card_1_1 = "1"
-    
-st.write(card_1_1)
+if st.button("change 1,1 pic to splendor"):
+    st.session_state['card_1_1'] = "1"
+
+st.write("session state:")    
+st.write(st.session_state)
     
     
