@@ -5,7 +5,7 @@ Created on Sun Aug 11 21:30:30 2024
 @author: jd_se
 """
 import streamlit as st
-from PIL import ImageOps
+from PIL import Image, ImageOps
 
 st.header("2 Players Game")
 
@@ -45,7 +45,7 @@ cards_dict ={"":"cards/splendor.jpg",
              "whi112100":"cards/whi112100.jpg"}
 
 for key in cards_dict.keys():
-    cards_dict[key] = ImageOps.exif_transpose(cards_dict[key])
+    cards_dict[key] = ImageOps.exif_transpose(Image.open(cards_dict[key]))
   
 
 st.write("Open the toggle to set up initial card tableau. Close when done")
