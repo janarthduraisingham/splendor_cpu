@@ -10,7 +10,7 @@ import streamlit as st
 st.header("2 Player Game")
 
 # initialise 3x4 card tableau
-card_list = ['card_1_1',
+var_list = ['card_1_1',
              'card_1_2',
              'card_1_3',
              'card_1_4',
@@ -20,11 +20,12 @@ card_list = ['card_1_1',
              'card_2_4',
              'card_3_1',
              'card_3_2',
-             'card_3_4',             
+             'card_3_4',
+             'setup_complete'
              ]
-for card in card_list:
-    if card not in st.session_state:
-            st.session_state[card] = '0'
+for var in var_list:
+    if var not in st.session_state:
+            st.session_state[var] = '0'
 #card_1_1 = "0"
 #card_1_2 = "0"
 #card_1_3 = "0"
@@ -56,7 +57,7 @@ cards_dict ={"0":"cards/test.jpg",
              "1":"cards/splendor.jpg"}
 
 st.write("Open the toggle to set up initial card tableu. Close when done")
-if st.toggle("Game setup") and st.session_state==initial_state: 
+if st.toggle("Game setup") and st.session_state['setup_complete']=='0': 
     st.write("Please enter cards in colour-cost-points format:\n\n bla/blu/gre/red/whi for colour\n\n a 5 digit number for the cost for the respective colours\n\n a 1 digit number for the points\n\n e.g. blu333001")
     
     cols = st.columns(4)
@@ -80,6 +81,9 @@ if st.toggle("Game setup") and st.session_state==initial_state:
         initial_card_1_4 = st.text_input("Level 1 Column 4 card")
         initial_card_2_4 = st.text_input("Level 2 Column 4 card")
         initial_card_3_4 = st.text_input("Level 3 Column 4 card")
+        
+    if st.button("Confirm setup"):
+        st.session_state['setup_complete'] == '1'
     
 #if st.button("Confirm"):
 #    card_1_1 = copy.deepcopy(initial_card_1_1)
