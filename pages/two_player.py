@@ -108,7 +108,7 @@ if st.toggle("Game setup") and st.session_state['setup_complete']=='':
 #    card_3_3 = copy.deepcopy(initial_card_3_3)
 #   card_3_4 = copy.deepcopy(initial_card_3_4)
 
-st.subheader("Game Board: Turn ", st.session_state['turn'] )
+st.subheader("Game Board: Turn ", str(st.session_state['turn']))
     
 tableau = st.columns(4)
 
