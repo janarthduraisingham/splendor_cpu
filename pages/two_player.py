@@ -46,14 +46,14 @@ card_serials = ['bla1002100',
 class Card:
     
     def __init__(self, serial):
-        self.colour = serial[1:4]
-        self.level = serial[4]
-        self.bla_cost = serial[5]
-        self.blu_cost = serial[6]
-        self.gre_cost = serial[7]
-        self.red_cost = serial[8]
-        self.whi_cost = serial[9]
-        self.points = serial[10]
+        self.colour = serial[0:3]
+        self.level = serial[3]
+        self.bla_cost = serial[4]
+        self.blu_cost = serial[5]
+        self.gre_cost = serial[6]
+        self.red_cost = serial[7]
+        self.whi_cost = serial[8]
+        self.points = serial[9]
         self.image = "cards/" + serial + ".jpg"
     
 
