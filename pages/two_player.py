@@ -57,7 +57,7 @@ cards_dict ={"":"cards/test.jpg",
              "1":"cards/splendor.jpg"}
 
 st.write("Open the toggle to set up initial card tableu. Close when done")
-if st.toggle("Game setup") and st.session_state['setup_complete']=='': 
+if st.toggle("Game setup", key='setup_toggle') and st.session_state['setup_complete']=='': 
     st.write("Please enter cards in colour-cost-points format:\n\n bla/blu/gre/red/whi for colour\n\n a 5 digit number for the cost for the respective colours\n\n a 1 digit number for the points\n\n e.g. blu333001")
     
     cols = st.columns(4)
@@ -84,6 +84,7 @@ if st.toggle("Game setup") and st.session_state['setup_complete']=='':
         
     if st.button("Confirm setup"):
         st.session_state['setup_complete'] = '1'
+        not st.session_state['setup_toggle']
     
 #if st.button("Confirm"):
 #    card_1_1 = copy.deepcopy(initial_card_1_1)
