@@ -95,7 +95,7 @@ def confirm_button():
     for card in slots:
         tableau_deck[st.session_state[card]] = deck[st.session_state[card]]
         del deck[st.session_state[card]]
-    
+        st.write("this is a test")
 
 cards_dict ={"":"cards/splendor.jpg",
              "bla1002100":"cards/bla1002100.jpg",
@@ -218,6 +218,8 @@ with tableau[3]:
 st.write("Deck contains: " + str(len(list(deck.keys()))))
 st.write("Tableau contains: " + str(len(list(tableau_deck.keys()))))
 
+st.write(deck)
+st.write(tableau_deck)
 st.session_state
 
 
