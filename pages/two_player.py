@@ -87,8 +87,7 @@ if st.toggle("Game setup") and st.session_state['setup_complete']=='':
         st.session_state['card_2_4'] = st.text_input("Level 2 Column 4 card")
         st.session_state['card_3_4'] = st.text_input("Level 3 Column 4 card")
         
-    if st.button("Confirm setup"):
-        confirm_button()
+    st.button("Confirm setup", on_click=confirm_button())
     
 #if st.button("Confirm"):
 #    card_1_1 = copy.deepcopy(initial_card_1_1)
