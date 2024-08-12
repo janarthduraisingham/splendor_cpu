@@ -7,7 +7,7 @@ Created on Sun Aug 11 21:30:30 2024
 import streamlit as st
 #import copy
 
-st.header("2 Player Game")
+st.header("2 Players Game")
 
 # initialise 3x4 card tableau
 var_list = ['card_1_1',
@@ -73,20 +73,6 @@ if st.toggle("Game setup") and st.session_state['setup_complete']=='':
         
     st.button("Confirm setup", on_click=confirm_button)
     
-#if st.button("Confirm"):
-#    card_1_1 = copy.deepcopy(initial_card_1_1)
-#    card_1_2 = copy.deepcopy(initial_card_1_2)
-#    card_1_3 = copy.deepcopy(initial_card_1_3)
-#    card_1_4 = copy.deepcopy(initial_card_1_4)
-#    card_2_1 = copy.deepcopy(initial_card_2_1)
-#    card_2_2 = copy.deepcopy(initial_card_2_2)
-#    card_2_3 = copy.deepcopy(initial_card_2_3)
-#    card_2_4 = copy.deepcopy(initial_card_2_4)
-#    card_3_1 = copy.deepcopy(initial_card_3_1)
-#    card_3_2 = copy.deepcopy(initial_card_3_2)
-#    card_3_3 = copy.deepcopy(initial_card_3_3)
-#   card_3_4 = copy.deepcopy(initial_card_3_4)
-
 st.subheader("Game Board: Turn " + str(st.session_state['turn']))
     
 tableau = st.columns(4)
