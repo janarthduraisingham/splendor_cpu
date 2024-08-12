@@ -105,19 +105,47 @@ if st.toggle("Game setup") and st.session_state['setup_complete']=='':
 
 st.subheader("Game Board")
     
-level_one = st.columns(4)
-level_two= st.columns(4)
-level_three = st.columns(4)
+tableau = st.columns(4)
 
-with level_one[0]:
+with tableau[0]:
     slot_1_1 = st.empty()
     slot_1_1.image(cards_dict[st.session_state['card_1_1']])
     
     slot_2_1 = st.empty()
-    slot_2_1.image(cards_dict[st.session_state['card_1_1']])
+    slot_2_1.image(cards_dict[st.session_state['card_2_1']])
     
-with level_one[1]:
-    st.image(cards_dict[st.session_state['card_1_2']])
+    slot_3_1 = st.empty()
+    slot_3_1.image(cards_dict[st.session_state['card_3_1']])
+    
+with tableau[1]:
+    slot_1_2 = st.empty()
+    slot_1_2.image(cards_dict[st.session_state['card_1_2']])
+    
+    slot_2_2 = st.empty()
+    slot_2_2.image(cards_dict[st.session_state['card_2_2']])
+    
+    slot_3_2 = st.empty()
+    slot_3_2.image(cards_dict[st.session_state['card_3_2']])
+    
+with tableau[2]:
+    slot_1_3 = st.empty()
+    slot_1_3.image(cards_dict[st.session_state['card_1_3']])
+    
+    slot_2_3 = st.empty()
+    slot_2_3.image(cards_dict[st.session_state['card_2_3']])
+    
+    slot_3_3 = st.empty()
+    slot_3_3.image(cards_dict[st.session_state['card_3_3']])
+    
+with tableau[3]:
+    slot_1_4 = st.empty()
+    slot_1_4.image(cards_dict[st.session_state['card_1_4']])
+    
+    slot_2_4 = st.empty()
+    slot_2_4.image(cards_dict[st.session_state['card_2_4']])
+    
+    slot_3_4 = st.empty()
+    slot_3_4.image(cards_dict[st.session_state['card_3_4']])
 
 def xyz():
     slot_1_1.empty()
