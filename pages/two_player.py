@@ -26,13 +26,19 @@ var_list = ['card_1_1',
              'turn',
              'obj_1',
              'obj_2',
-             'obj_3'
+             'obj_3',
+             'deck',
+             'tableau_deck',
+             'p1_deck',
+             'cpu_deck'
              ]
 
 for var in var_list:
     if var not in st.session_state:
         if var == 'turn':
             st.session_state[var] = 1
+        elif var in ['deck', 'tableau_deck', 'p1_deck', 'cpu_deck']:
+            st.session_state[var] = {}
         else:
             st.session_state[var] = ''
 
@@ -75,15 +81,15 @@ class Card:
 
 
 # create deck of cards (dictionary)
-deck = {}
-tableau_deck = {}
-cpu_deck = {}
-p1_deck = {}
+#deck = {}
+#tableau_deck = {}
+#cpu_deck = {}
+#p1_deck = {}
 
 for serial in card_serials:
     
     # instantiate card class
-    deck[serial] = Card(serial)
+    st.session_state['deck'][serial] = Card(serial)
     
     
 
@@ -92,13 +98,13 @@ def confirm_button():
     st.session_state['setup_complete'] = 'complete'
     
     # move cards from deck to tableau
-    st.write("this is a pre pre test")
+    #st.write("this is a pre pre test")
     for card in slots:
-        st.write("this is a pre test")
-        tableau_deck[st.session_state[card]] = deck[st.session_state[card]]
-        del deck[st.session_state[card]]
-        st.write("this is a post test")
-        st.write(st.session_state[card])
+        #st.write("this is a pre test")
+        st.session_state['tableau_deck'][st.session_state[card]] = st.session_state['deck'][st.session_state[card]]
+        del st.session_state['deck'][st.session_state[card]]
+        #st.write("this is a post test")
+        #st.write(st.session_state[card])
 
 cards_dict ={"":"cards/splendor.jpg",
              "bla1002100":"cards/bla1002100.jpg",
@@ -218,11 +224,11 @@ with tableau[3]:
 ###############
 
 
-st.write("Deck contains: " + str(len(list(deck.keys()))))
-st.write("Tableau contains: " + str(len(list(tableau_deck.keys()))))
+st.write("Deck contains: " + str(len(list(st.session_state['deck'].keys()))))
+st.write("Tableau contains: " + str(len(list(st.session_state['tableau_deck'].keys()))))
 st.write(st.session_state['card_1_1'])
-st.write(deck)
-st.write(tableau_deck)
+st.write(st.session_state['deck'])
+st.write(st.session_state['tableau_deck'])
 st.session_state
 
 
