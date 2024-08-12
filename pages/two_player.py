@@ -119,7 +119,8 @@ with level_one[1]:
 
 def xyz():
     slot_1_1.empty()
-    slot_1_1.image(cards_dict[st.session_state['1']])
+    st.session_state['card_1_1'] = '1'
+    slot_1_1.image(cards_dict[st.session_state['card_1_1']])
     
 st.button("change 1,1 pic to splendor", on_click=xyz)
 
