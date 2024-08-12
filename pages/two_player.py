@@ -93,7 +93,7 @@ def confirm_button():
     
     # move cards from deck to tableau
     for card in slots:
-        tableau[st.session_start[card]] = deck[st.session_state[card]]
+        tableau[st.session_state[card]] = deck[st.session_state[card]]
         del deck[st.session_state[card]]
     
 
