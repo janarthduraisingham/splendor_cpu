@@ -5,7 +5,7 @@ Created on Sun Aug 11 21:30:30 2024
 @author: jd_se
 """
 import streamlit as st
-#import copy
+from PIL import Image
 
 st.header("2 Players Game")
 
@@ -44,6 +44,14 @@ cards_dict ={"":"cards/splendor.jpg",
              "obj300333":"cards/obj300333.jpg",
              "whi112100":"cards/whi112100.jpg"}
 
+# Remove EXIF data
+for card in cards_dict.values():
+    image=Image.open(card)
+    data = list(image.getdata())
+    image_without_exif = Image.new(image.mode, image.size)
+    image_without_exif.putdata(data)
+    image_without_exif.close()
+    
 
 st.write("Open the toggle to set up initial card tableau. Close when done")
 if st.toggle("Game setup") and st.session_state['setup_complete']=='': 
