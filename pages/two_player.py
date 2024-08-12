@@ -116,9 +116,12 @@ with level_one[0]:
     
 with level_one[1]:
     st.image(cards_dict[st.session_state['card_1_2']])
+
+def xyz():
+    slot_1_1.empty()
+    slot_1_1.image(cards_dict[st.session_state['1']])
     
-if st.button("change 1,1 pic to splendor"):
-    st.session_state['card_1_1'] = "1"
+st.button("change 1,1 pic to splendor", on_click=xyz)
 
 st.write("session state:")    
 st.write(st.session_state)
