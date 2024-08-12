@@ -84,7 +84,7 @@ if st.toggle("Game setup", key='setup_toggle') and st.session_state['setup_compl
         
     if st.button("Confirm setup"):
         st.session_state['setup_complete'] = '1'
-        not st.session_state['setup_toggle']
+        st.session_state['setup_toggle'] = False
     
 #if st.button("Confirm"):
 #    card_1_1 = copy.deepcopy(initial_card_1_1)
