@@ -38,11 +38,25 @@ for card in card_list:
 #card_3_3 = "0"
 #card_3_4 = "0"
 
+initial_state = {
+  "card_3_4": "0",
+  "card_1_1": "0",
+  "card_1_2": "0",
+  "card_2_3": "0",
+  "card_1_4": "0",
+  "card_2_2": "0",
+  "card_3_1": "0",
+  "card_3_2": "0",
+  "card_2_4": "0",
+  "card_1_3": "0",
+  "card_2_1": "0"
+}
+
 cards_dict ={"0":"cards/test.jpg",
              "1":"cards/splendor.jpg"}
 
 st.write("Open the toggle to set up initial card tableu. Close when done")
-if st.toggle("Game setup") and st.session_state=={}: 
+if st.toggle("Game setup") and st.session_state==initial_state: 
     st.write("Please enter cards in colour-cost-points format:\n\n bla/blu/gre/red/whi for colour\n\n a 5 digit number for the cost for the respective colours\n\n a 1 digit number for the points\n\n e.g. blu333001")
     
     cols = st.columns(4)
