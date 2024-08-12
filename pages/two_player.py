@@ -181,18 +181,17 @@ with tableau[3]:
     slot_3_4.image(cards_dict[st.session_state['card_3_4']])
 
 ###############
-def xyz():
-    slot_1_1.empty()
-    st.session_state['card_1_1'] = '1'
-    slot_1_1.image(cards_dict[st.session_state['card_1_1']])
+#def xyz():
+#    slot_1_1.empty()
+#    st.session_state['card_1_1'] = '1'
+#    slot_1_1.image(cards_dict[st.session_state['card_1_1']])
     
-st.button("change 1,1 pic to splendor", on_click=xyz)
+#st.button("change 1,1 pic to splendor", on_click=xyz)
 ###############
-test_key = list(deck.keys())[0]
-st.write(deck[test_key].colour)
-st.image(deck[test_key].image)
 
-st.write("session state:")    
-st.write(st.session_state)
+
+st.write("Deck contains: " + str(len(list(deck.keys()))))
+
+
     
     
