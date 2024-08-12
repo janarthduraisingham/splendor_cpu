@@ -88,9 +88,9 @@ class Card:
 #p1_deck = {}
 
 for serial in card_serials:
-    
+    pass
     # instantiate card class
-    st.session_state['deck'][serial] = Card(serial)
+    #st.session_state['deck'][serial] = Card(serial)
     
     
 
