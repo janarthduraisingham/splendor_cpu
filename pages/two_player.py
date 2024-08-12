@@ -7,7 +7,7 @@ Created on Sun Aug 11 21:30:30 2024
 import streamlit as st
 #import copy
 
-st.header("2 Players Game")
+st.header("2 Player Game")
 
 # initialise 3x4 card tableau
 var_list = ['card_1_1',
