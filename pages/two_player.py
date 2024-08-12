@@ -44,11 +44,11 @@ def confirm_button():
     st.session_state['setup_complete'] = 'complete'
 
 cards_dict ={"":"cards/splendor.jpg",
-             "bla002100":"cards/bla1002100.jpg",
-             "blu300000":"cards/blu1300000.jpg",
-             "gre010020":"cards/gre1010020.jpg",
+             "bla1002100":"cards/bla1002100.jpg",
+             "blu1300000":"cards/blu1300000.jpg",
+             "gre1010020":"cards/gre1010020.jpg",
              "obj300333":"cards/obj300333.jpg",
-             "whi112100":"cards/whi1112100.jpg"}
+             "whi1112100":"cards/whi1112100.jpg"}
 
 for key in cards_dict.keys():
     cards_dict[key] = ImageOps.exif_transpose(Image.open(cards_dict[key]))
