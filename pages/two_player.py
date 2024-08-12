@@ -226,7 +226,8 @@ with tableau[3]:
 
 st.write("Deck contains: " + str(len(list(st.session_state['deck'].keys()))))
 st.write("Tableau contains: " + str(len(list(st.session_state['tableau_deck'].keys()))))
-st.write(st.session_state['card_1_1'])
+#st.write("sst.session_state['card_1_1'])
+st.write("decks:")
 st.write(st.session_state['deck'])
 st.write(st.session_state['tableau_deck'])
 st.session_state
