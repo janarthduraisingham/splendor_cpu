@@ -76,7 +76,7 @@ class Card:
 
 # create deck of cards (dictionary)
 deck = {}
-tableau = {}
+tableau_deck = {}
 cpu_deck = {}
 p1_deck = {}
 
@@ -93,7 +93,7 @@ def confirm_button():
     
     # move cards from deck to tableau
     for card in slots:
-        tableau[st.session_state[card]] = deck[st.session_state[card]]
+        tableau_deck[st.session_state[card]] = deck[st.session_state[card]]
         del deck[st.session_state[card]]
     
 
@@ -216,7 +216,7 @@ with tableau[3]:
 
 
 st.write("Deck contains: " + str(len(list(deck.keys()))))
-st.write("Tableau contains: " + str(len(list(tableau.keys()))))
+st.write("Tableau contains: " + str(len(list(tableau_deck.keys()))))
 
 
     
