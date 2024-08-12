@@ -103,7 +103,7 @@ def confirm_button():
     for card in slots:
         #st.write("this is a pre test")
         st.session_state['tableau_deck'][st.session_state[card]] = st.session_state['deck'][st.session_state[card]]
-        st.session_state['deck'] = st.session_state['deck'].pop(st.session_state[card])
+        #st.session_state['deck'] = st.session_state['deck'].pop(st.session_state[card])
         #st.write("this is a post test")
         #st.write(st.session_state[card])
 
