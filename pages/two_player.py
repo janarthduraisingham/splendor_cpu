@@ -42,6 +42,22 @@ card_serials = ['bla1002100',
                 'gre1010020',
                 'whi1112100']
 
+slotsx = ['card_1_1',
+         'card_1_2',
+         'card_1_3',
+         'card_1_4',
+         'card_2_1',
+         'card_2_2',
+         'card_2_3',
+         'card_2_4',
+         'card_3_1',
+         'card_3_2',
+         'card_3_3',
+         'card_3_4']
+
+slots = ['card_1_1',
+         'card_1_2']
+
 # define card class
 class Card:
     
@@ -60,6 +76,9 @@ class Card:
 
 # create deck of cards (dictionary)
 deck = {}
+tableau = {}
+cpu_deck = {}
+p1_deck = {}
 
 for serial in card_serials:
     
@@ -71,6 +90,12 @@ for serial in card_serials:
 # confirm button
 def confirm_button():
     st.session_state['setup_complete'] = 'complete'
+    
+    # move cards from deck to tableau
+    for card in slots:
+        tableau[st.session_start[card]] = deck[st.session_state[card]]
+        del deck[st.session_state[card]]
+    
 
 cards_dict ={"":"cards/splendor.jpg",
              "bla1002100":"cards/bla1002100.jpg",
@@ -191,6 +216,7 @@ with tableau[3]:
 
 
 st.write("Deck contains: " + str(len(list(deck.keys()))))
+st.write("Tableau contains: " + str(len(list(tableau.keys()))))
 
 
     
