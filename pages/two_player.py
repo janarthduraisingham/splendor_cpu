@@ -21,11 +21,16 @@ var_list = ['card_1_1',
              'card_3_1',
              'card_3_2',
              'card_3_4',
-             'setup_complete'
+             'setup_complete',
              ]
+
 for var in var_list:
     if var not in st.session_state:
             st.session_state[var] = ''
+            
+# confirm button
+def confirm_button():
+    st.session_state['setup_complete'] = '1'
 #card_1_1 = "0"
 #card_1_2 = "0"
 #card_1_3 = "0"
@@ -83,7 +88,7 @@ if st.toggle("Game setup") and st.session_state['setup_complete']=='':
         st.session_state['card_3_4'] = st.text_input("Level 3 Column 4 card")
         
     if st.button("Confirm setup"):
-        st.session_state['setup_complete'] = '1'
+        confirm_button()
     
 #if st.button("Confirm"):
 #    card_1_1 = copy.deepcopy(initial_card_1_1)
