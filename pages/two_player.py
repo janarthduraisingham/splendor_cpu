@@ -36,35 +36,14 @@ for var in var_list:
 # confirm button
 def confirm_button():
     st.session_state['setup_complete'] = 'complete'
-#card_1_1 = "0"
-#card_1_2 = "0"
-#card_1_3 = "0"
-#card_1_4 = "0"
-#card_2_1 = "0"
-#card_2_2 = "0"
-#card_2_3 = "0"
-#card_2_4 = "0"
-#card_3_1 = "0"
-#card_3_2 = "0"
-#card_3_3 = "0"
-#card_3_4 = "0"
 
-#initial_state = {
-#  "card_3_4": "0",
-#  "card_1_1": "0",
-#  "card_1_2": "0",
-#  "card_2_3": "0",
-#  "card_1_4": "0",
-#  "card_2_2": "0",
-#  "card_3_1": "0",
-#  "card_3_2": "0",
-#  "card_2_4": "0",
-#  "card_1_3": "0",
-#  "card_2_1": "0"
-#}
+cards_dict ={"":"cards/splendor.jpg",
+             "bla002100":"cards/bla002100.jpg",
+             "blu300000":"cards/blu300000.jpg",
+             "gre010020":"cards/gre010020.jpg",
+             "obj300333":"cards/obj300333.jpg",
+             "whi112100":"cards/whi112100.jpg"}
 
-cards_dict ={"":"cards/test.jpg",
-             "1":"cards/splendor.jpg"}
 
 st.write("Open the toggle to set up initial card tableau. Close when done")
 if st.toggle("Game setup") and st.session_state['setup_complete']=='': 
