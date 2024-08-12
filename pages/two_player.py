@@ -9,7 +9,7 @@ from PIL import Image, ImageOps
 
 st.header("2 Players Game")
 
-# initialise 3x4 card tableau
+# initialise vars
 var_list = ['card_1_1',
              'card_1_2',
              'card_1_3',
@@ -37,7 +37,36 @@ for var in var_list:
             st.session_state[var] = ''
 
 # List of cards
-card_serials = ['bla']
+card_serials = ['bla1002100',
+                'blu1300000',
+                'gre1010020',
+                'whi1112100']
+
+# define card class
+class Card:
+    
+    def __init__(self, serial):
+        self.colour = serial[1:4]
+        self.level = serial[4]
+        self.bla_cost = serial[5]
+        self.blu_cost = serial[6]
+        self.gre_cost = serial[7]
+        self.red_cost = serial[8]
+        self.whi_cost = serial[9]
+        self.points = serial[10]
+        self.image = "cards/" + serial + ".jpg"
+    
+
+
+# create deck of cards (dictionary)
+deck = {}
+
+for serial in card_serials:
+    
+    # instantiate card class
+    deck[serial] = Card(serial)
+    
+    
 
 # confirm button
 def confirm_button():
@@ -151,12 +180,17 @@ with tableau[3]:
     slot_3_4 = st.empty()
     slot_3_4.image(cards_dict[st.session_state['card_3_4']])
 
+###############
 def xyz():
     slot_1_1.empty()
     st.session_state['card_1_1'] = '1'
     slot_1_1.image(cards_dict[st.session_state['card_1_1']])
     
 st.button("change 1,1 pic to splendor", on_click=xyz)
+###############
+test_key = list(deck.keys())[0]
+st.write(deck[test_key].colour)
+st.image(deck[test_key].image)
 
 st.write("session state:")    
 st.write(st.session_state)
