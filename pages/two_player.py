@@ -8,7 +8,7 @@ import streamlit as st
 from PIL import Image, ImageOps
 
 
-st.header("2 Players Game")
+st.header("2 Player Game")
 
 # initialise vars
 var_list = ['card_1_1',
