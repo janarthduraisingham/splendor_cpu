@@ -6,7 +6,7 @@ Created on Sun Aug 11 21:30:30 2024
 """
 import streamlit as st
 from PIL import Image, ImageOps
-from intial_objects import *
+from initial_objects import *
 
 st.header("2 Players Game")
 
