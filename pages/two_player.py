@@ -82,8 +82,8 @@ class Card:
 
 
 # create deck of cards (dictionary)
-deck = {}
-tableau_deck = {}
+#deck = {}
+#tableau_deck = {}
 #cpu_deck = {}
 #p1_deck = {}
 
@@ -104,8 +104,7 @@ def confirm_button():
         #st.write("this is a pre test")
         st.session_state['tableau_deck'][st.session_state[card]] = st.session_state['deck'][st.session_state[card]]
         #st.session_state['deck'] = st.session_state['deck'].pop(st.session_state[card])
-        #st.write("this is a post test")
-        #st.write(st.session_state[card])
+        st.session_state['deck'] = dict(set(st.session_state['deck'].items()) - set(st.session_state['tableau_deck'].items()) )
 
 cards_dict ={"":"cards/splendor.jpg",
              "bla1002100":"cards/bla1002100.jpg",
