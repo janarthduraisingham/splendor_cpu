@@ -85,16 +85,17 @@ slots = ['card_1_1',
     
 
 
-# create deck of cards (dictionary)
-for serial in card_serials:
-    
-    # add to deck
-    st.session_state['deck'] = st.session_state['deck'] + [serial]
+
     
     
 
 # confirm button
 def confirm_button():
+    # create deck of cards (dictionary)
+    for serial in card_serials:
+        
+        # add to deck
+        st.session_state['deck'] = st.session_state['deck'] + [serial]
     st.session_state['setup_complete'] = 'complete'
     
     # move cards from deck to tableau
