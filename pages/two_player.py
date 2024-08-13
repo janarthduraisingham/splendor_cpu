@@ -96,13 +96,17 @@ def confirm_button():
         
         # add to deck
         st.session_state['deck'] = st.session_state['deck'] + [serial]
+    
     st.session_state['setup_complete'] = 'complete'
     
-    # move cards from deck to tableau
-    #st.write("this is a pre pre test")
+    # add drawn cards to tableau
     for card in slots:
         st.session_state['tableau_deck'] = st.session_state['tableau_deck'] + [st.session_state[card]]
-
+        
+    # remove drawn cards from deck
+    st.session_state['deck'] = [card for card in st.session_state['deck'] if card not in st.session_state['tableau_deck']]
+    
+    
 cards_dict ={"":"cards/splendor.jpg",
              "bla1002100":"cards/bla1002100.jpg",
              "blu1300000":"cards/blu1300000.jpg",
