@@ -101,10 +101,10 @@ def confirm_button():
     # move cards from deck to tableau
     #st.write("this is a pre pre test")
     for card in slots:
-        #st.write("this is a pre test")
-        st.session_state['tableau_deck'][st.session_state[card]] = st.session_state['deck'][st.session_state[card]]
+        st.write("this is a pre test")
+        #st.session_state['tableau_deck'][st.session_state[card]] = st.session_state['deck'][st.session_state[card]]
         #st.session_state['deck'] = st.session_state['deck'].pop(st.session_state[card])
-        st.session_state['deck'] = dict(set(st.session_state['deck'].items()) - set(st.session_state['tableau_deck'].items()) )
+        #st.session_state['deck'] = dict(set(st.session_state['deck'].items()) - set(st.session_state['tableau_deck'].items()) )
 
 cards_dict ={"":"cards/splendor.jpg",
              "bla1002100":"cards/bla1002100.jpg",
