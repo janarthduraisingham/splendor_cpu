@@ -6,7 +6,6 @@ Created on Sun Aug 11 21:30:30 2024
 """
 import streamlit as st
 from PIL import Image, ImageOps
-import copy
 
 
 st.header("2 Players Game")
@@ -34,6 +33,9 @@ var_list = ['card_1_1',
              'p1_deck',
              'cpu_deck',
              'post_setup_deck'
+             'lista',
+             'listb',
+             'listc'
              ]
 
 for var in var_list:
@@ -42,6 +44,10 @@ for var in var_list:
             st.session_state[var] = 1
         elif var in ['deck', 'tableau_deck', 'p1_deck', 'cpu_deck']:
             st.session_state[var] = {}
+        elif var == 'lista':
+            st.session_state[var] = ['a', 'b', 'c']
+        elif var == 'listb':
+            st.session_state[var] = ['a']
         else:
             st.session_state[var] = ''
 
@@ -109,8 +115,7 @@ def confirm_button():
         #st.session_state['deck'] = dict(set(st.session_state['deck'].items()) - set(st.session_state['tableau_deck'].items()) )
     
     st.session_state['post_setup_deck'] = dict(set(st.session_state['deck'].items()) - set(st.session_state['tableau_deck'].items()))
-    st.session_state['deck'] = ''
-    #st.session_state['deck'] = copy.deepcopy(st.session_state['post_setup_deck'])
+    st.session_state['listc'] = [x for x in st.session_state['lista'] if x not in st.session_state['listb']]
 
 cards_dict ={"":"cards/splendor.jpg",
              "bla1002100":"cards/bla1002100.jpg",
