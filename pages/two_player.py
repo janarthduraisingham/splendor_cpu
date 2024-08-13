@@ -141,7 +141,7 @@ for card in card_serials:
 objs_dict = {'':'cards/splendor.jpg'}
 
 for obj in obj_serials:
-    objs_dict[key] = "cards/objective_cards/" + obj + ".jpg"
+    objs_dict[obj] = "cards/objective_cards/" + obj + ".jpg"
 
 #for key in objs_dict.keys():
 #    objs_dict[key] = ImageOps.exif_transpose(Image.open(objs_dict[key]))
