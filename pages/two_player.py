@@ -32,7 +32,7 @@ var_list = ['card_1_1',
              'tableau_deck',
              'p1_deck',
              'cpu_deck',
-             'difference'
+             'post_setup_deck'
              ]
 
 for var in var_list:
@@ -107,7 +107,8 @@ def confirm_button():
         #st.session_state['deck'] = st.session_state['deck'].pop(st.session_state[card])
         #st.session_state['deck'] = dict(set(st.session_state['deck'].items()) - set(st.session_state['tableau_deck'].items()) )
     
-    st.session_state['deck'] = dict(set(st.session_state['deck'].items()) - set(st.session_state['tableau_deck'].items()))
+    st.session_state['post_setup_deck'] = dict(set(st.session_state['deck'].items()) - set(st.session_state['tableau_deck'].items()))
+    st.session_state['turn'] = st.session_state['turn'] + 1
 
 cards_dict ={"":"cards/splendor.jpg",
              "bla1002100":"cards/bla1002100.jpg",
