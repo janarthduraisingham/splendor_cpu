@@ -32,7 +32,7 @@ var_list = ['card_1_1',
              'tableau_deck',
              'p1_deck',
              'cpu_deck',
-             'intialise'
+             'initialise'
              ]
 
 for var in var_list:
