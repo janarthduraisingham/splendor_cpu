@@ -43,11 +43,7 @@ for var in var_list:
         if var == 'turn':
             st.session_state[var] = 1
         elif var in ['deck', 'tableau_deck', 'p1_deck', 'cpu_deck']:
-            st.session_state[var] = {}
-        elif var == 'lista':
-            st.session_state[var] = ['a', 'b', 'c']
-        elif var == 'listb':
-            st.session_state[var] = ['a']
+            st.session_state[var] = []
         else:
             st.session_state[var] = ''
 
@@ -74,31 +70,26 @@ slots = ['card_1_1',
          'card_1_2']
 
 # define card class
-class Card:
+#class Card:
     
-    def __init__(self, serial):
-        self.colour = serial[0:3]
-        self.level = serial[3]
-        self.bla_cost = serial[4]
-        self.blu_cost = serial[5]
-        self.gre_cost = serial[6]
-        self.red_cost = serial[7]
-        self.whi_cost = serial[8]
-        self.points = serial[9]
-        self.image = "cards/" + serial + ".jpg"
+#    def __init__(self, serial):
+#        self.colour = serial[0:3]
+#        self.level = serial[3]
+#        self.bla_cost = serial[4]
+#        self.blu_cost = serial[5]
+#        self.gre_cost = serial[6]
+#       self.red_cost = serial[7]
+#       self.whi_cost = serial[8]
+#       self.points = serial[9]
+#       self.image = "cards/" + serial + ".jpg"
     
 
 
 # create deck of cards (dictionary)
-#deck = {}
-#tableau_deck = {}
-#cpu_deck = {}
-#p1_deck = {}
-
 for serial in card_serials:
     
-    # instantiate card class
-    st.session_state['deck'][serial] = Card(serial)
+    # add to deck
+    st.session_state['deck'] = st.session_state['deck'] + [serial]
     
     
 
@@ -110,12 +101,12 @@ def confirm_button():
     #st.write("this is a pre pre test")
     for card in slots:
         st.write("this is a pre test")
-        st.session_state['tableau_deck'][st.session_state[card]] = st.session_state['deck'][st.session_state[card]]
+        st.session_state['tableau_deck'] = st.session_state['tableau_deck'] + [st.session_state[card]]
         #st.session_state['deck'] = st.session_state['deck'].pop(st.session_state[card])
         #st.session_state['deck'] = dict(set(st.session_state['deck'].items()) - set(st.session_state['tableau_deck'].items()) )
     
-    st.session_state['post_setup_deck'] = dict(set(st.session_state['deck'].items()) - set(st.session_state['tableau_deck'].items()))
-    st.session_state['listc'] = [x for x in st.session_state['lista'] if x not in st.session_state['listb']]
+    #st.session_state['post_setup_deck'] = dict(set(st.session_state['deck'].items()) - set(st.session_state['tableau_deck'].items()))
+    #st.session_state['listc'] = [x for x in st.session_state['lista'] if x not in st.session_state['listb']]
 
 cards_dict ={"":"cards/splendor.jpg",
              "bla1002100":"cards/bla1002100.jpg",
@@ -235,8 +226,8 @@ with tableau[3]:
 ###############
 
 
-st.write("Deck contains: " + str(len(list(st.session_state['deck'].keys()))))
-st.write("Tableau contains: " + str(len(list(st.session_state['tableau_deck'].keys()))))
+st.write("Deck contains: " + str(len((st.session_state['deck']))))
+st.write("Tableau contains: " + str(len(st.session_state['tableau_deck'])))
 #st.write("sst.session_state['card_1_1'])
 st.write("decks:")
 st.write(st.session_state['deck'])
