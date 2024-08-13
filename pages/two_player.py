@@ -134,8 +134,8 @@ cards_dict = {'':'cards/splendor.jpg'}
 for card in card_serials:
     cards_dict[card] = "cards/" + card + ".jpg"
     
-for key in cards_dict.keys():
-    cards_dict[key] = ImageOps.exif_transpose(Image.open(cards_dict[key]))
+#for key in cards_dict.keys():
+#    cards_dict[key] = ImageOps.exif_transpose(Image.open(cards_dict[key]))
 
 # initialise objs_dict
 objs_dict = {'':'cards/splendor.jpg'}
@@ -143,8 +143,8 @@ objs_dict = {'':'cards/splendor.jpg'}
 for obj in obj_serials:
     objs_dict[key] = "cards/objective_cards/" + obj + ".jpg"
 
-for key in objs_dict.keys():
-    objs_dict[key] = ImageOps.exif_transpose(Image.open(objs_dict[key]))
+#for key in objs_dict.keys():
+#    objs_dict[key] = ImageOps.exif_transpose(Image.open(objs_dict[key]))
 
       
 
