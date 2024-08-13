@@ -35,7 +35,8 @@ var_list = ['card_1_1',
              'post_setup_deck',
              'lista',
              'listb',
-             'listc'
+             'listc',
+             'intialise'
              ]
 
 for var in var_list:
@@ -48,7 +49,14 @@ for var in var_list:
             st.session_state[var] = ''
 
 # List of cards
-card_serials = ['bla1002100',
+card_serials = ['bla1002020',
+                'bla1002100',
+                'bla1003000',
+                'bla1011110',
+                'bla1020120',
+                'bla1021110',
+                'bla1030001',
+                'bla1101300',
                 'blu1300000',
                 'gre1010020',
                 'whi1112100']
@@ -89,22 +97,18 @@ def confirm_button():
     # remove drawn cards from deck
     st.session_state['deck'] = [card for card in st.session_state['deck'] if card not in st.session_state['tableau_deck']]
     
-cards_dict = {'':'cards/splendor.jpg'}
-
-for card in card_serials:
-    cards_dict[card] = "cards/" + card + ".jpg"
+# intialise cards_dict
+if st.session_state['initialise'] == '':
     
-#cards_dict ={"":"cards/splendor.jpg",
-#             "bla1002100":"cards/bla1002100.jpg",
-#             "blu1300000":"cards/blu1300000.jpg",
-#             "gre1010020":"cards/gre1010020.jpg",
-#             "obj300333":"cards/obj300333.jpg",
-#             "whi1112100":"cards/whi1112100.jpg"}
+    cards_dict = {'':'cards/splendor.jpg'}
 
-
-
-for key in cards_dict.keys():
-    cards_dict[key] = ImageOps.exif_transpose(Image.open(cards_dict[key]))
+    for card in card_serials:
+        cards_dict[card] = "cards/" + card + ".jpg"
+    
+    for key in cards_dict.keys():
+        cards_dict[key] = ImageOps.exif_transpose(Image.open(cards_dict[key]))
+        
+    st.session_state['intialise'] = 1
   
 
 st.write("Open the toggle to set up initial card tableau. Close when done")
