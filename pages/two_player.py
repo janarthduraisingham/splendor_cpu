@@ -109,7 +109,8 @@ def confirm_button():
         #st.session_state['deck'] = dict(set(st.session_state['deck'].items()) - set(st.session_state['tableau_deck'].items()) )
     
     st.session_state['post_setup_deck'] = dict(set(st.session_state['deck'].items()) - set(st.session_state['tableau_deck'].items()))
-    st.session_state['deck'] = copy.deepcopy(st.session_state['post_setup_deck'])
+    st.session_state['deck'] = ''
+    #st.session_state['deck'] = copy.deepcopy(st.session_state['post_setup_deck'])
 
 cards_dict ={"":"cards/splendor.jpg",
              "bla1002100":"cards/bla1002100.jpg",
