@@ -82,8 +82,8 @@ class Card:
 
 
 # create deck of cards (dictionary)
-#deck = {}
-#tableau_deck = {}
+deck = {}
+tableau_deck = {}
 #cpu_deck = {}
 #p1_deck = {}
 
