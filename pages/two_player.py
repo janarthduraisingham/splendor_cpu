@@ -73,9 +73,6 @@ slots = ['card_1_1',
          'card_3_3',
          'card_3_4']
 
-#slots = ['card_1_1',
-#         'card_1_2']
-
 # confirm button
 def confirm_button():
     # create deck of cards (dictionary)
@@ -94,7 +91,8 @@ def confirm_button():
     st.session_state['deck'] = [card for card in st.session_state['deck'] if card not in st.session_state['tableau_deck']]
     
 # intialise cards_dict
-if st.session_state['initialise'] == '':
+#if st.session_state['initialise'] == '':
+if True:
     
     cards_dict = {'':'cards/splendor.jpg'}
 
