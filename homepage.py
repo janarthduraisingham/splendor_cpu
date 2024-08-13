@@ -20,19 +20,19 @@ cols = st.columns(3)
 
 with cols[0]:
     if st.button("New 2 player game"):   
-        st.switch_page("pages/two_player.py")
+        st.switch_page("games/two_player.py")
     
 with cols[1]:
     if st.button("New 3 player game"):
-        st.switch_page("pages/three_player.py")
+        st.switch_page("games/three_player.py")
     
 with cols[2]:
     if st.button("New 4 player game"):
-        st.switch_page("pages/four_player.py")
+        st.switch_page("games/four_player.py")
 
-two_player = st.Page("pages/two_player.py", title="2 Player Game", icon=":material/diamond:")
-three_player = st.Page("pages/three_player.py", title="3 Player Game", icon=":material/diamond:")
-four_player = st.Page("pages/four_player.py", title="4 Player Game", icon=":material/diamond:")
+two_player = st.Page("games/two_player.py", title="2 Player Game", icon=":material/diamond:")
+three_player = st.Page("games/three_player.py", title="3 Player Game", icon=":material/diamond:")
+four_player = st.Page("games/four_player.py", title="4 Player Game", icon=":material/diamond:")
 
 
 pg = st.navigation([
