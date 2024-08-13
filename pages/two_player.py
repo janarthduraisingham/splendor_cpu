@@ -31,7 +31,8 @@ var_list = ['card_1_1',
              'deck',
              'tableau_deck',
              'p1_deck',
-             'cpu_deck'
+             'cpu_deck',
+             'difference'
              ]
 
 for var in var_list:
@@ -103,9 +104,10 @@ def confirm_button():
     for card in slots:
         st.write("this is a pre test")
         st.session_state['tableau_deck'][st.session_state[card]] = st.session_state['deck'][st.session_state[card]]
-        st.session_state['deck']="test"
         #st.session_state['deck'] = st.session_state['deck'].pop(st.session_state[card])
         #st.session_state['deck'] = dict(set(st.session_state['deck'].items()) - set(st.session_state['tableau_deck'].items()) )
+    
+    st.session_state['difference'] = dict(set(st.session_state['deck']) - set(st.session_state['tableau_deck']))
 
 cards_dict ={"":"cards/splendor.jpg",
              "bla1002100":"cards/bla1002100.jpg",
