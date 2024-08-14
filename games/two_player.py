@@ -7,7 +7,7 @@ Created on Sun Aug 11 21:30:30 2024
 import streamlit as st
 from PIL import Image, ImageOps
 
-st.header("2 Player Game")
+st.header("2 Players Game")
 
 # initialise blank string vars
 var_list = ['card_1_1',
@@ -30,7 +30,22 @@ var_list = ['card_1_1',
             'tableau_deck',
             'p1_deck',
             'cpu_deck',
-            'initialise'
+            'initialise',
+            'cpu_black',
+            'cpu_blue',
+            'cpu_green',
+            'cpu_red',
+            'cpu_white',
+            'cpu_gold',
+            'p1_black',
+            'p1_blue',
+            'p1_green',
+            'p1_red',
+            'p1_white',
+            'p1_gold',
+            'cpu_points',
+            'p1_points',
+            'gem_choice'
             ]
  
 for var in var_list:
@@ -39,6 +54,8 @@ for var in var_list:
             st.session_state[var] = 1
         elif var in ['tableau_deck', 'p1_deck', 'cpu_deck']:
             st.session_state[var] = []
+        elif var in ['cpu_points', 'p1_points']:
+            st.session_state[var] = 0
         else:
             st.session_state[var] = ''
  
@@ -119,20 +136,26 @@ if 'main_deck' not in st.session_state:
     st.session_state['main_deck'] = []
     for serial in st.session_state['card_serials']:
         st.session_state['main_deck'] = st.session_state['main_deck'] + [serial]
-        
- 
-# confirm button
-def confirm_button():
+
+# Initialise gem supply:
+
+if 'gem_supply' not in st.session_state:
+    st.session_state['gem_supply'] = {'black':6,
+                                      'blue':6,
+                                      'green':6,
+                                      'white':6,
+                                      'red':6,
+                                      'gold':6
+                                      }        
+
+# Initialise cpu_gems and p1_gems
+for gem in ['black', 'blue', 'green', 'red', 'white', 'gold']:
+    if st.session_state['cpu_' + gem] =='':
+        st.session_state['cpu_' + gem] = 0
+    if st.session_state['p1_' + gem] =='':
+        st.session_state['p1_' + gem] = 0
+
     
-    # add drawn cards to tableau
-    for card in st.session_state['slots']:
-        st.session_state['tableau_deck'] = st.session_state['tableau_deck'] + [st.session_state[card]]
-        
-    st.session_state['setup_complete'] = 'complete'
-        
-    # remove drawn cards from deck
-    st.session_state['main_deck'] = [card for card in st.session_state['main_deck'] if card not in st.session_state['tableau_deck']]
-     
 # Initialise cards_img_dict
 if 'card_img_dict' not in st.session_state:
     st.session_state['card_img_dict'] = {'':"cards/splendor.jpg"}
@@ -150,7 +173,20 @@ if 'obj_img_dict' not in st.session_state:
         
     for key in st.session_state['obj_img_dict'].keys():
         st.session_state['obj_img_dict'][key] = ImageOps.exif_transpose(Image.open(st.session_state['obj_img_dict'][key]))
+
+# confirm button
+def confirm_button():
+    
+    # add drawn cards to tableau
+    for card in st.session_state['slots']:
+        st.session_state['tableau_deck'] = st.session_state['tableau_deck'] + [st.session_state[card]]
         
+    st.session_state['setup_complete'] = 'complete'
+        
+    # remove drawn cards from deck
+    st.session_state['main_deck'] = [card for card in st.session_state['main_deck'] if card not in st.session_state['tableau_deck']]
+         
+
 # Initial set up interface 
 st.write("Open the toggle to set up initial card tableau. Click Confirm setup when done")
 if st.toggle("Game setup") and st.session_state['setup_complete']=='': 
@@ -249,7 +285,38 @@ with tableau[3]:
     slot_3_4 = st.empty()
     slot_3_4.image(st.session_state['card_img_dict'][st.session_state['card_3_4']])
 
-###############
+### P1 MOVES
+st.subheader("Player Actions")
+# Take gems
+
+def take_gem(player, gem):
+    
+    st.session_state[player + gem] += 1
+    st.session_state['gem_supply'][gem] -= 1
+    
+
+action_1 = st.columns(5)
+    
+with action_1[0]:
+    st.button("Take black gem",
+              on_click=take_gem,
+              args = ('p1_', 'black'))
+    
+    ####### repeat for all including gold
+    ####### repeat for paying
+
+
+
+# Reserve a card
+
+
+# Buy tableau card
+
+
+
+# Buy reserved card
+
+
 #def xyz():
 #    slot_1_1.empty()
 #    st.session_state['card_1_1'] = '1'
@@ -258,9 +325,38 @@ with tableau[3]:
 #st.button("change 1,1 pic to splendor", on_click=xyz)
 ###############
 
+# Remaining cards
+st.session_state['level_1'] = [card for card in st.session_state['main_deck'] if card[3] == '1']
+st.session_state['level_2'] = [card for card in st.session_state['main_deck'] if card[3] == '2']
+st.session_state['level_3'] = [card for card in st.session_state['main_deck'] if card[3] == '3']
+
+# gem supply
+for gem in ['black', 'blue', 'green', 'red', 'white', 'gold']:
+    st.session_state[gem] = st.session_state['gem_supply'][gem]
+
+st.subheader("Cards")
 
 st.write("Deck contains: " + str(len((st.session_state['main_deck']))))
-st.write("Tableau contains: " + str(len(st.session_state['tableau_deck'])))
+st.write("Level 1 cards remaining: " + str(len(st.session_state['level_1'])))
+st.write("Level 2 cards remaining: " + str(len(st.session_state['level_2'])))
+st.write("Level 3 cards remaining: " + str(len(st.session_state['level_3'])))
+
+st.subheader("Gems")
+
+resources = st.columns(3)
+
+with resources[0]:
+    for gem in ['black', 'blue', 'green', 'red', 'white', 'gold']:  
+        st.write(gem + " gems remaining: " + str(st.session_state[gem]))
+
+with resources[1]:    
+    for gem in ['black', 'blue', 'green', 'red', 'white', 'gold']:
+        st.write("CPU " + gem + " gems: " + str(st.session_state["cpu_" + gem]))
+
+with resources[2]:    
+    for gem in ['black', 'blue', 'green', 'red', 'white', 'gold']:  
+        st.write("P1 " + gem + " gems: " + str(st.session_state["p1_" + gem]))
+
 #st.write("session state:")
 #st.session_state
 
