@@ -7,7 +7,7 @@ Created on Sun Aug 11 21:30:30 2024
 import streamlit as st
 from PIL import Image, ImageOps
 
-st.header("2 Players Game")
+st.header("2 Player Game")
 
 # initialise blank string vars
 var_list = ['card_1_1',
@@ -27,9 +27,10 @@ var_list = ['card_1_1',
             'obj_1',
             'obj_2',
             'obj_3',
-            'tableau_deck',
             'p1_deck',
+            'p1_reserve_deck',
             'cpu_deck',
+            'cpu_reserve_deck',
             'initialise',
             'cpu_black',
             'cpu_blue',
@@ -46,13 +47,15 @@ var_list = ['card_1_1',
             'cpu_points',
             'p1_points',
             'take_pay_gems',
+            'take_card',
+            'reserve_card'
             ]
  
 for var in var_list:
     if var not in st.session_state:
         if var == 'turn':
             st.session_state[var] = 1
-        elif var in ['tableau_deck', 'p1_deck', 'cpu_deck']:
+        elif var in ['p1_reserve_deck', 'p1_deck', 'cpu_deck', 'cpu_reserve_deck']:
             st.session_state[var] = []
         elif var in ['cpu_points', 'p1_points']:
             st.session_state[var] = 0
@@ -186,13 +189,13 @@ if 'obj_img_dict' not in st.session_state:
 def confirm_button():
     
     # add drawn cards to tableau
-    for card in st.session_state['slots']:
-        st.session_state['tableau_deck'] = st.session_state['tableau_deck'] + [st.session_state[card]]
+    #for card in st.session_state['slots']:
+    #    st.session_state['tableau_deck'] = st.session_state['tableau_deck'] + [st.session_state[card]]
         
     st.session_state['setup_complete'] = 'complete'
         
     # remove drawn cards from deck
-    st.session_state['main_deck'] = [card for card in st.session_state['main_deck'] if card not in st.session_state['tableau_deck']]
+    st.session_state['main_deck'] = [card for card in st.session_state['main_deck'] if card not in [st.session_state[slot] for slot in st.session_state['slots']]] #st.session_state['tableau_deck']]
          
 
 # Initial set up interface 
@@ -309,13 +312,12 @@ def take_pay_gem(player, choice, coeff):
         st.session_state[player + st.session_state['colour_dict'][colour]] += number * coeff
         st.session_state['gem_supply'][st.session_state['colour_dict'][colour]] -= number * coeff
     
-    #st.session_state[player + gem] += 1
-    #st.session_state['gem_supply'][gem] -= 1
     
-st.write("enter gem choice in format: blu2bla3")
+st.subheader("Take or Pay Gems")    
+st.write("Enter gems in colour-number format e.g. blu2bla3 for 2 blue and 3 black")
 st.session_state['take_pay_gems'] = st.text_input("Gems")    
 
-# Take pay buttons
+# Take / pay buttons
 
 take_pay = st.columns(2)
 
@@ -329,14 +331,36 @@ with take_pay[1]:
               on_click=take_pay_gem,
               args = ('p1_', st.session_state['take_pay_gems'], -1))
 
+# Take a card
+st.subheader("Take a Card")
+
+def take_card(deck, slot):
+    
+    # add card to player/cpu deck
+    st.session_state[deck] = st.session_state[deck] + [st.session_state[slot]]
+    
+    # remove card from tableau
+    st.session_state[slot] = ''
+
+st.write("Enter card slot to take from in card_level_column format e.g. card_3_4")
+st.session_state['take_card'] = st.text_input("Card Slot to Take From")
+
+st.button("Take card",
+          on_click=take_card,
+          args = ('p1_deck', st.session_state['take_card']))
 
 
-# Reserve a card
 
+# Reserve card    
 
-# Buy tableau card
+st.write("Enter card slot to reserve from in card_level_column format e.g. card_3_4")
+st.session_state['reserve_card'] = st.text_input("Card Slot to Reserve From")
 
+st.button("Reserve card",
+          on_click=take_card,
+          args = ('p1_reserve_deck', st.session_state['reserve_card']))
 
+st.subheader("Draw card from deck")
 
 # Buy reserved card
 
@@ -381,8 +405,15 @@ with resources[2]:
     for gem in ['black', 'blue', 'green', 'red', 'white', 'gold']:  
         st.write("P1 " + gem + " gems: " + str(st.session_state["p1_" + gem]))
 
-#st.write("session state:")
-#st.session_state
 
+st.write("Player 1 deck")
+st.session_state['p1_deck']
+
+st.write("Player 1 reserve deck")
+st.session_state['p1_reserve_deck']
+st.write("session state:card_1_2 value")
+st.session_state['card_1_2']
+st.write("session st reserve card")
+st.session_state['reserve_card']
     
     
