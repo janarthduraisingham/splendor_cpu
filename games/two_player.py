@@ -45,7 +45,7 @@ var_list = ['card_1_1',
             'p1_gold',
             'cpu_points',
             'p1_points',
-            'gem_choice'
+            'take_pay_gems',
             ]
  
 for var in var_list:
@@ -59,7 +59,15 @@ for var in var_list:
         else:
             st.session_state[var] = ''
  
- 
+# colour dictionary
+if 'colour_dict' not in st.session_state:
+    st.session_state['colour_dict'] = {'bla':'black',
+                                       'blu':'blue',
+                                       'gre':'green',
+                                       'red':'red',
+                                       'whi':'white',
+                                       'gol':'gold'}
+
 # List of cards
 if 'card_serials' not in st.session_state:
     st.session_state['card_serials'] = ['bla1002020',
@@ -289,21 +297,37 @@ with tableau[3]:
 st.subheader("Player Actions")
 # Take gems
 
-def take_gem(player, gem):
+def take_pay_gem(player, choice, coeff):
     
-    st.session_state[player + gem] += 1
-    st.session_state['gem_supply'][gem] -= 1
+    gems = int(len(choice)/4)
     
+    for gem in range(gems):
+        
+        colour = choice[4*gem:4*gem+3]
+        number = int(choice[4*gem + 3])
+        
+        st.session_state[player + st.session_state['colour_dict'][colour]] += number * coeff
+        st.session_state['gem_supply'][st.session_state['colour_dict'][colour]] -= number * coeff
+    
+    #st.session_state[player + gem] += 1
+    #st.session_state['gem_supply'][gem] -= 1
+    
+st.write("enter gem choice in format: blu2bla3")
+st.session_state['take_pay_gems'] = st.text_input("Gems")    
 
-action_1 = st.columns(5)
+# Take pay buttons
+
+take_pay = st.columns(2)
+
+with take_pay[0]:
+    st.button("Take gems",
+              on_click=take_pay_gem,
+              args = ('p1_', st.session_state['take_pay_gems'], 1))
     
-with action_1[0]:
-    st.button("Take black gem",
-              on_click=take_gem,
-              args = ('p1_', 'black'))
-    
-    ####### repeat for all including gold
-    ####### repeat for paying
+with take_pay[1]:
+    st.button("Pay gems",
+              on_click=take_pay_gem,
+              args = ('p1_', st.session_state['take_pay_gems'], -1))
 
 
 
